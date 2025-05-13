@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar"; // Make sure this component exists
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-900 text-white relative pb-10">
+    <div className="min-h-screen text-white relative pb-10">
       <Navbar /> {/* Navbar at the top */}
       
       <div className="fixed left-0 top-1/2 transform -translate-y-1/2 pl-14">

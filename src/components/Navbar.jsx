@@ -15,9 +15,10 @@ const Navbar = ({ onLogoClick }) => {
       </a>
 
       <div className="flex space-x-6 text-sm sm:text-base">
-        <Link to="/">Home</Link>
+        
         <Link to="/about">About</Link>
         <Link to="/work">Work</Link>
+        <Link to="/blog">Blog</Link>
         <Link to="/contact">Contact</Link>
       </div>
     </nav>
