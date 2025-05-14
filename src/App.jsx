@@ -62,7 +62,7 @@ function App() {
                 <div className="flex flex-col md:flex-row justify-between w-full max-w-7xl gap-10">
                   {/* Left Text */}
                   <div className="md:w-1/2 text-left text-lg md:text-xl leading-relaxed space-y-2">
-                    <p>Helping brands to stand out in the digital era.</p>
+                    <p>Helping customer to stand out in the digital era.</p>
                     <p>Together we will set the new status quo.</p>
                     <p>No nonsense, always on the cutting edge.</p>
                   </div>

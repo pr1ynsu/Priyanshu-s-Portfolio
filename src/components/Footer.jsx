@@ -27,8 +27,8 @@ const Footer = () => {
       {/* Contact Info Boxes */}
       <div className="flex flex-col md:flex-row justify-center items-center gap-6 mt-12 w-full">
         {/* Email Box */}
-        <a href="mailto:2206283@kiit.ac.in" className="bg-white bg-opacity-10 backdrop-blur-md text-white p-4 px-6 rounded-md text-center hover:bg-opacity-20 transition">
-          Email: 2206283@kiit.ac.in
+        <a href="mailto:priyanshukr804@gmail.com" className="bg-white bg-opacity-10 backdrop-blur-md text-white p-4 px-6 rounded-md text-center hover:bg-opacity-20 transition">
+          Email: priyanshukr804@gmail.com
         </a>
 
         {/* Phone Box */}
@@ -41,10 +41,10 @@ const Footer = () => {
       <div className="flex justify-between items-center mt-14 text-sm flex-wrap gap-4 text-white max-w-7xl mx-auto w-full">
         <div>© Priyanshu</div>
         <div className="flex space-x-6 text-lg">
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">Linkedin</a>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer">Github</a>
+          <a href="https://x.com/prynsu5560" target="_blank" rel="noopener noreferrer">Twitter</a>
+          <a href="https://www.instagram.com/_priynsu/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.linkedin.com/in/priyanshu-poddar-133609246/" target="_blank" rel="noopener noreferrer">Linkedin</a>
+          <a href="https://github.com/pr1ynsu" target="_blank" rel="noopener noreferrer">Github</a>
         </div>
       </div>
     </footer>
