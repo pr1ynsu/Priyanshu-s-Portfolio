@@ -11,14 +11,13 @@ body {
   padding: 0;
 }
 
-/* Container fixed to bottom */
+/* Container should scroll with the page, not fixed */
 .marquee-container {
-  position: fixed;
-  bottom: 0;
+  /* REMOVED: position: fixed; */
   width: 100vw;
   overflow: hidden;
   background: transparent;
-  z-index: 50;
+  /* REMOVED: z-index: 50; */
   margin-bottom: 2rem;
 }
 
