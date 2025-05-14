@@ -1,8 +1,9 @@
-// src/components/Navbar.jsx
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = ({ onLogoClick }) => {
+  const location = useLocation(); // Get the current route
+
   return (
     <nav className="fixed top-0 left-0 w-full z-40 flex justify-between items-center p-9 bg-transparent text-white">
       <a
@@ -15,7 +16,9 @@ const Navbar = ({ onLogoClick }) => {
       </a>
 
       <div className="flex space-x-6 text-sm sm:text-base">
-        
+        {location.pathname !== "/" && (  // Only show Home if not on the landing page
+          <Link to="/">Home</Link>  // This links back to the landing page (App.jsx)
+        )}
         <Link to="/about">About</Link>
         <Link to="/work">Work</Link>
         {/* Direct Medium blog link */}
