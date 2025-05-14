@@ -18,7 +18,15 @@ const Navbar = ({ onLogoClick }) => {
         
         <Link to="/about">About</Link>
         <Link to="/work">Work</Link>
-        <Link to="/blog">Blog</Link>
+        {/* Direct Medium blog link */}
+        <a
+          href="https://medium.com/@poddarpriyanshu" // ← Replace with your real Medium URL
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:underline"
+        >
+          Blog
+        </a>
         <Link to="/contact">Contact</Link>
       </div>
     </nav>
