@@ -39,9 +39,9 @@ function App() {
   }, [showGreeting]);
 
   return (
-    <div className="min-h-screen text-white relative overflow-hidden">
+    <div className="min-h-screen text-[#faebd7] relative overflow-hidden">
       {showGreeting && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#222222] text-pink-300 greeting-slide">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#222222] text-[#333333] greeting-slide">
           <h1 className="text-4xl sm:text-6xl font-bold">
             {greetings[currentGreeting]}
           </h1>
@@ -64,7 +64,7 @@ function App() {
                   {/* Section 1 */}
                   <section className="h-screen relative px-14">
                     <div className="flex justify-between items-center h-full">
-                      <div className="bg-white bg-opacity-10 text-white p-4 rounded-md text-xl backdrop-blur-md shadow-lg">
+                      <div className="bg-white bg-opacity-10 text-[#faebd7] p-4 rounded-md text-xl backdrop-blur-md shadow-lg hover:bg-opacity-20">
                         Located in the India
                       </div>
                       <div className="text-2xl leading-relaxed text-left">
@@ -94,7 +94,7 @@ function App() {
                   </section>
 
                   {/* Section 2 */}
-                  <section className="flex flex-col items-center justify-center py-24 px-8 md:px-20 bg-[#1e1e1e]">
+                  <section className="flex flex-col items-center justify-center py-24 px-8 md:px-20 bg-[#282727]">
                     <div className="flex flex-col md:flex-row justify-between w-full max-w-7xl gap-10">
                       <div className="md:w-1/2 text-left text-lg md:text-xl leading-relaxed space-y-2">
                         <p>Helping customer to stand out in the digital era.</p>
@@ -109,11 +109,11 @@ function App() {
                     </div>
 
                     <div className="w-full max-w-7xl mt-20 relative">
-                      <div className="border-t border-white w-full absolute top-1/2 left-0 transform -translate-y-1/2"></div>
+                      <div className="border-t border-cream w-full absolute top-1/2 left-0 transform -translate-y-1/2"></div>
                       <div className="relative flex justify-end pr-4">
                         <Link
                           to="/about"
-                          className="bg-white text-black font-semibold rounded-full w-28 h-28 flex items-center justify-center z-10 cursor-pointer hover:bg-gray-200 transition duration-300 text-sm"
+                          className="bg-cream text-black font-semibold rounded-full w-28 h-28 flex items-center justify-center z-10 cursor-pointer hover:bg-opacity-80 transition duration-300 text-sm"
                         >
                           About Me
                         </Link>

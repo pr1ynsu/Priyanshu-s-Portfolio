@@ -8,9 +8,9 @@ const Footer = () => {
       <div className="flex flex-1 items-center justify-between max-w-7xl mx-auto w-full relative">
         {/* Left side: Contact Me Circle over Line */}
         <div className="w-1/2 relative">
-          <div className="border-t border-white w-full absolute top-1/2 left-0 transform -translate-y-1/2"></div>
+          <div className="border-t border-cream w-full absolute top-1/2 left-0 transform -translate-y-1/2"></div>
           <div className="relative flex justify-start pl-4 mt-[-2rem]">
-            <div className="bg-white text-black font-semibold rounded-full w-32 h-32 flex items-center justify-center text-lg cursor-pointer hover:bg-gray-200 transition duration-300 shadow-lg">
+            <div className="bg-cream text-black font-semibold rounded-full w-32 h-32 flex items-center justify-center text-lg cursor-pointer hover:bg-opacity-80 transition duration-300 shadow-lg">
               <Link to="/contact" className="w-full h-full flex items-center justify-center">
                 Contact Me
               </Link>
@@ -19,26 +19,26 @@ const Footer = () => {
         </div>
 
         {/* Right side: Let's work together without line */}
-        <div className="w-1/2 flex flex-col items-end justify-center text-right text-white pr-4">
-          <p className="text-6xl font-bold leading-snug mb-0">Let's work<br />together</p>
+        <div className="w-1/2 flex flex-col items-end justify-center text-right text-cream pr-4">
+          <p className="text-6xl font-bold leading-snug mb-0">Let's Work<br />Together</p>
         </div>
       </div>
 
       {/* Contact Info Boxes */}
       <div className="flex flex-col md:flex-row justify-center items-center gap-6 mt-12 w-full">
         {/* Email Box */}
-        <a href="mailto:priyanshukr804@gmail.com" className="bg-white bg-opacity-10 backdrop-blur-md text-white p-4 px-6 rounded-md text-center hover:bg-opacity-20 transition">
+        <a href="mailto:priyanshukr804@gmail.com" className="bg-cream bg-opacity-10 backdrop-blur-md text-cream p-4 px-6 rounded-md text-center hover:bg-opacity-20 transition">
           Email: priyanshukr804@gmail.com
         </a>
 
         {/* Phone Box */}
-        <a href="tel:+917070567961" className="bg-white bg-opacity-10 backdrop-blur-md text-white p-4 px-6 rounded-md text-center hover:bg-opacity-20 transition">
+        <a href="tel:+917070567961" className="bg-cream bg-opacity-10 backdrop-blur-md text-cream p-4 px-6 rounded-md text-center hover:bg-opacity-20 transition">
           Phone: 7070567961
         </a>
       </div>
 
       {/* Bottom Bar */}
-      <div className="flex justify-between items-center mt-14 text-sm flex-wrap gap-4 text-white max-w-7xl mx-auto w-full">
+      <div className="flex justify-between items-center mt-14 text-sm flex-wrap gap-4 text-cream max-w-7xl mx-auto w-full">
         <div>© Priyanshu</div>
         <div className="flex space-x-6 text-lg">
           <a href="https://x.com/prynsu5560" target="_blank" rel="noopener noreferrer">Twitter</a>

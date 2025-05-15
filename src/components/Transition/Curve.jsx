@@ -62,7 +62,7 @@ const SVG = ({ height, width }) => {
 
   return (
     <motion.svg {...anim(translate)}>
-      <motion.path fill="#636363" {...anim(curve(initialPath, targetPath))} />
+      <motion.path fill="#333333" {...anim(curve(initialPath, targetPath))} />
     </motion.svg>
   );
 };

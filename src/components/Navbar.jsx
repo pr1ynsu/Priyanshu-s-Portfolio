@@ -14,13 +14,15 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMenu = () => setMenuVisible(!menuVisible);
+  const toggleMenu = () => {
+    setMenuVisible((prev) => !prev);
+  };
 
   return (
     <div>
       {/* Navbar */}
       <nav
-        className={`fixed top-0 left-0 w-full z-40 flex justify-between items-center p-9 bg-transparent text-white transition-all duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 w-full z-40 flex justify-between items-center p-9 bg-transparent text-[#faebd7] transition-all duration-300 ease-in-out ${
           scrolling ? "opacity-0" : "opacity-100"
         }`}
       >
@@ -28,11 +30,11 @@ const Navbar = () => {
           href="https://drive.google.com/file/d/1OVZhb0nONyXVXRj26Vt7_z_q5ZYlzNLz/view?usp=drive_link"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm sm:text-base font-bold tracking-wide text-left"
+          className="text-l l:text-base font-bold tracking-wide text-left"
         >
           © Priyanshu
         </a>
-        <div className="flex space-x-6 text-sm sm:text-base">
+        <div className="flex space-x-6 text-l l:text-base">
           {location.pathname !== "/" && <Link to="/">Home</Link>}
           <Link to="/about">About</Link>
           <Link to="/work">Work</Link>
@@ -52,48 +54,47 @@ const Navbar = () => {
       {!menuVisible && scrolling && (
         <div
           onClick={toggleMenu}
-          className="fixed right-6 top-6 w-12 h-12 bg-gray-700 text-white rounded-full flex items-center justify-center cursor-pointer shadow-lg z-50"
+          className="fixed right-8 top-6 w-12 h-12 bg-cream text-black rounded-full flex items-center justify-center cursor-pointer shadow-lg z-50"
         >
-          <i className="text-3xl">☰</i>
+          <b className="text-3xl">☰</b>
         </div>
       )}
 
       {/* Sliding Menu */}
       <div
-  className={`fixed top-0 right-0 w-[45%] h-full p-8 bg-[#222222] text-white z-50 transform transition-transform duration-300 ease-in-out ${
-    menuVisible ? "translate-x-0" : "translate-x-full"
-  }`}
-
-        style={{ backgroundColor: "#222222" }}
+        className={`fixed top-0 right-0 w-[45%] h-full p-8 text-cream z-50 transform transition-transform duration-300 ease-in-out ${
+          menuVisible ? "translate-x-0" : "translate-x-full"
+        }`}
+        style={{ backgroundColor: "#333333" }}
       >
         <div className="flex flex-col h-full justify-between relative">
-          {/* Close Button Inside Sliding Menu */}
+          {/* Close Button */}
           <div
             onClick={toggleMenu}
-            className="absolute top-4 right-4 w-10 h-10 bg-gray-700 text-white rounded-full flex items-center justify-center cursor-pointer z-50"
+            className="absolute top-4 right-4 w-10 h-10 bg-cream text-black rounded-full flex items-center justify-center cursor-pointer z-50"
           >
             <i className="text-2xl">×</i>
           </div>
 
-          {/* Top Nav Section */}
+          {/* Navigation Links */}
           <div className="mt-10">
             <h2 className="text-2xl font-semibold mb-6 text-center">Navigation</h2>
-            <div className="border-b border-white mb-6"></div>
+            <div className="border-b border-cream mb-6"></div>
             <ul className="space-y-6 text-center text-base sm:text-lg md:text-xl">
               {location.pathname !== "/" && (
                 <li>
-                  <Link to="/" className="hover:text-gray-400" onClick={toggleMenu}>
+                  <Link to="/" className="hover:text-background" onClick={toggleMenu}>
                     Home
                   </Link>
                 </li>
               )}
               <li>
-                <Link to="/about" className="hover:text-gray-400" onClick={toggleMenu}>
+                <Link to="/about" className="hover:text-background" onClick={toggleMenu}>
                   About
                 </Link>
               </li>
               <li>
-                <Link to="/work" className="hover:text-gray-400" onClick={toggleMenu}>
+                <Link to="/work" className="hover:text-background" onClick={toggleMenu}>
                   Work
                 </Link>
               </li>
@@ -102,20 +103,20 @@ const Navbar = () => {
                   href="https://medium.com/@poddarpriyanshu"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-gray-400"
+                  className="hover:text-background"
                 >
                   Blog
                 </a>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-gray-400" onClick={toggleMenu}>
+                <Link to="/contact" className="hover:text-background" onClick={toggleMenu}>
                   Contact
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Bottom Social Section */}
+          {/* Social Links */}
           <div className="pt-10">
             <h3 className="text-lg font-semibold mb-4 text-center">Follow Me</h3>
             <ul className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm sm:text-base text-center">
@@ -124,7 +125,7 @@ const Navbar = () => {
                   href="https://www.linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-gray-400"
+                  className="hover:text-background"
                 >
                   LinkedIn
                 </a>
@@ -134,7 +135,7 @@ const Navbar = () => {
                   href="https://github.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-gray-400"
+                  className="hover:text-background"
                 >
                   GitHub
                 </a>
@@ -144,7 +145,7 @@ const Navbar = () => {
                   href="https://www.instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-gray-400"
+                  className="hover:text-background"
                 >
                   Instagram
                 </a>
@@ -154,7 +155,7 @@ const Navbar = () => {
                   href="https://www.twitter.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-gray-400"
+                  className="hover:text-background"
                 >
                   Twitter
                 </a>

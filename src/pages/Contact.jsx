@@ -34,10 +34,10 @@ const Contact = () => {
 
     emailjs
       .send(
-        "service_lmtlbco", // Your service ID from EmailJS
-        "template_wocbfdp", // Your template ID from EmailJS
+        "service_lmtlbco", // service ID from EmailJS
+        "template_wocbfdp", // template ID from EmailJS
         templateParams,
-        "UXqWTkLf7w6dJvyBd" // Your user ID from EmailJS
+        "UXqWTkLf7w6dJvyBd" // user ID from EmailJS
       )
       .then(
         (result) => {
@@ -52,13 +52,13 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-grey text-white px-6 md:px-16 py-20">
+    <div className="min-h-screen bg-[#3C3D37] text-[#ECDFCC] px-6 md:px-16 py-20">
       <div className="max-w-[1600px] mx-auto grid md:grid-cols-5 gap-12 items-start">
         {/* Left: Form (80%) - 4 columns */}
         <div className="md:col-span-4 bg-white bg-opacity-5 p-10 rounded-lg space-y-10 backdrop-blur-md shadow-lg">
           <form onSubmit={sendEmail}>
             <div>
-              <label className="block mb-2 text-lg">1. What is your Name?</label>
+              <label className="block mb-1 text-lg">1. What is your Name?</label>
               <input
                 type="text"
                 name="name"
@@ -70,7 +70,7 @@ const Contact = () => {
             </div>
 
             <div>
-              <label className="block mb-2 text-lg">2. What's your Email?</label>
+              <label className="block mb-1 text-lg">2. What's your Email?</label>
               <input
                 type="email"
                 name="email"
@@ -82,7 +82,7 @@ const Contact = () => {
             </div>
 
             <div>
-              <label className="block mb-2 text-lg">3. What's the Name of your Organization?</label>
+              <label className="block mb-1 text-lg">3. What's the Name of your Organization?</label>
               <input
                 type="text"
                 name="organization"
@@ -94,7 +94,7 @@ const Contact = () => {
             </div>
 
             <div>
-              <label className="block mb-2 text-lg">4. What service are you looking for?</label>
+              <label className="block mb-1 text-lg">4. What service are you looking for?</label>
               <input
                 type="text"
                 name="service"
@@ -106,7 +106,7 @@ const Contact = () => {
             </div>
 
             <div>
-              <label className="block mb-2 text-lg">5. Your Message</label>
+              <label className="block mb-1 text-lg">5. Your Message</label>
               <textarea
                 name="message"
                 rows="4"
@@ -121,7 +121,7 @@ const Contact = () => {
             <div className="mt-6">
               <button
                 type="submit"
-                className="bg-pink-500 text-white px-8 py-3 rounded-full shadow-lg hover:bg-pink-600 transition duration-300"
+                className="bg-cream text-black px-8 py-3 rounded-full shadow-lg hover:bg-opacity-70 transition duration-300"
               >
                 Send
               </button>

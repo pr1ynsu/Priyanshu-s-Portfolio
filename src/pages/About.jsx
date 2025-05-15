@@ -3,16 +3,16 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-grey text-white px-6 md:px-20 py-20">
+    <div className="min-h-screen bg-[#3C3D37] text-[#ECDFCC] px-6 md:px-20 py-20">
       {/* Screen 1 */}
       <div className="text-left">
         <h1 className="text-4xl md:text-6xl font-semibold mb-4">
           Helping Customers <br /> Thrive in the Digital World
         </h1>
         <div className="relative">
-          <div className="border-t border-white w-full absolute top-1/2 left-0 transform -translate-y-1/2"></div>
+          <div className="border-t border-cream w-full absolute top-1/2 left-0 transform -translate-y-1/2"></div>
           <div className="relative flex justify-end pr-4">
-            <div className="bg-white text-black font-semibold rounded-full w-32 h-32 flex items-center justify-center text-lg cursor-pointer hover:bg-gray-200 transition duration-300">
+            <div className="bg-cream text-black font-semibold rounded-full w-32 h-32 flex items-center justify-center text-lg cursor-pointer transition duration-300">
               <a href="#screen2" className="w-full h-full flex items-center justify-center">
                 Learn More
               </a>

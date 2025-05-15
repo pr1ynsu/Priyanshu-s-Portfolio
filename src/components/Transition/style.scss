@@ -10,7 +10,7 @@
   }
 
   .background {
-    background-color: #636363; // Match portfolio background
+    background-color: #333333; // Match portfolio background
     transition: opacity 0s linear 0.1s;
   }
 
@@ -18,7 +18,7 @@
     position: absolute;
     left: 50%;
     top: 47.5%;
-    color: #ffb6c1; // Light pink
+    color: #faebd7; 
     font-size: 52px;
     z-index: 51;
     transform: translateX(-50%);
