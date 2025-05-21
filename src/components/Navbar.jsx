@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import "../App.css"; // Make sure this is included if your custom classes are there
 
 const Navbar = () => {
   const location = useLocation();
@@ -35,18 +36,18 @@ const Navbar = () => {
           © Priyanshu
         </a>
         <div className="flex space-x-6 text-l l:text-base">
-          {location.pathname !== "/" && <Link to="/">Home</Link>}
-          <Link to="/about">About</Link>
-          <Link to="/work">Work</Link>
+          {location.pathname !== "/" && <Link to="/" className="nav-link">Home</Link>}
+          <Link to="/about" className="nav-link">About</Link>
+          <Link to="/work" className="nav-link">Work</Link>
           <a
             href="https://medium.com/@poddarpriyanshu"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:underline"
+            className="nav-link"
           >
             Blog
           </a>
-          <Link to="/contact">Contact</Link>
+          <Link to="/contact" className="nav-link">Contact</Link>
         </div>
       </nav>
 
@@ -83,18 +84,18 @@ const Navbar = () => {
             <ul className="space-y-6 text-center text-base sm:text-lg md:text-xl">
               {location.pathname !== "/" && (
                 <li>
-                  <Link to="/" className="hover:text-background" onClick={toggleMenu}>
+                  <Link to="/" className="menu-link hover:text-background" onClick={toggleMenu}>
                     Home
                   </Link>
                 </li>
               )}
               <li>
-                <Link to="/about" className="hover:text-background" onClick={toggleMenu}>
+                <Link to="/about" className="menu-link hover:text-background" onClick={toggleMenu}>
                   About
                 </Link>
               </li>
               <li>
-                <Link to="/work" className="hover:text-background" onClick={toggleMenu}>
+                <Link to="/work" className="menu-link hover:text-background" onClick={toggleMenu}>
                   Work
                 </Link>
               </li>
@@ -103,13 +104,13 @@ const Navbar = () => {
                   href="https://medium.com/@poddarpriyanshu"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-background"
+                  className="menu-link hover:text-background"
                 >
                   Blog
                 </a>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-background" onClick={toggleMenu}>
+                <Link to="/contact" className="menu-link hover:text-background" onClick={toggleMenu}>
                   Contact
                 </Link>
               </li>
@@ -125,7 +126,7 @@ const Navbar = () => {
                   href="https://www.linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-background"
+                  className="social-link hover:text-background"
                 >
                   LinkedIn
                 </a>
@@ -135,7 +136,7 @@ const Navbar = () => {
                   href="https://github.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-background"
+                  className="social-link hover:text-background"
                 >
                   GitHub
                 </a>
@@ -145,7 +146,7 @@ const Navbar = () => {
                   href="https://www.instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-background"
+                  className="social-link hover:text-background"
                 >
                   Instagram
                 </a>
@@ -155,7 +156,7 @@ const Navbar = () => {
                   href="https://www.twitter.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-background"
+                  className="social-link hover:text-background"
                 >
                   Twitter
                 </a>
