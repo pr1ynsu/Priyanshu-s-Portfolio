@@ -141,16 +141,7 @@ const Navbar = () => {
                   GitHub
                 </a>
               </li>
-              <li>
-                <a
-                  href="https://www.instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="social-link hover:text-background"
-                >
-                  Instagram
-                </a>
-              </li>
+             
               <li>
                 <a
                   href="https://www.twitter.com"

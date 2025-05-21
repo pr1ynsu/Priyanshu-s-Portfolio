@@ -42,7 +42,6 @@ const Footer = () => {
         <div>© Priyanshu</div>
         <div className="flex space-x-6 text-lg">
           <a href="https://x.com/prynsu5560" target="_blank" rel="noopener noreferrer">Twitter</a>
-          <a href="https://www.instagram.com/_priynsu/" target="_blank" rel="noopener noreferrer">Instagram</a>
           <a href="https://www.linkedin.com/in/priyanshu-poddar-133609246/" target="_blank" rel="noopener noreferrer">Linkedin</a>
           <a href="https://github.com/pr1ynsu" target="_blank" rel="noopener noreferrer">Github</a>
         </div>
