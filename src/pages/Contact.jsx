@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
+import "../style/Contact.css";
 
-const Contact = () => {
-  // State for the form fields
+export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -11,181 +11,87 @@ const Contact = () => {
     message: "",
   });
 
-  // Handle form input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    setFormData((p) => ({ ...p, [name]: value }));
   };
 
-  // Send email function using EmailJS
   const sendEmail = (e) => {
     e.preventDefault();
 
-    const templateParams = {
-      name: formData.name,
-      email: formData.email,
-      organization: formData.organization,
-      service: formData.service,
-      message: formData.message,
-    };
+    emailjs.send(
+      "service_lmtlbco",
+      "template_wocbfdp",
+      formData,
+      "UXqWTkLf7w6dJvyBd"
+    );
 
-    emailjs
-      .send(
-        "service_lmtlbco", // service ID from EmailJS
-        "template_wocbfdp", // template ID from EmailJS
-        templateParams,
-        "UXqWTkLf7w6dJvyBd" // user ID from EmailJS
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          alert("Your message has been sent successfully!");
-        },
-        (error) => {
-          console.log(error.text);
-          alert("An error occurred. Please try again.");
-        }
-      );
+    alert("Message sent 🚀");
   };
 
   return (
-    <div className="min-h-screen bg-[#3C3D37] text-[#ECDFCC] px-6 md:px-16 py-20">
-      <div className="max-w-[1600px] mx-auto grid md:grid-cols-5 gap-12 items-start">
-        {/* Left: Form (80%) - 4 columns */}
-        <div className="md:col-span-4 bg-white bg-opacity-5 p-10 rounded-lg space-y-10 backdrop-blur-md shadow-lg">
-          <form onSubmit={sendEmail}>
-            <div>
-              <label className="block mb-1 text-lg">1. What is your Name?</label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                placeholder="Your name"
-                className="bg-transparent border-b border-white w-full outline-none py-2"
-              />
-            </div>
+    <section className="contact-page">
 
-            <div>
-              <label className="block mb-1 text-lg">2. What's your Email?</label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                placeholder="your@email.com"
-                className="bg-transparent border-b border-white w-full outline-none py-2"
-              />
-            </div>
+      <div className="contact-wrapper">
 
-            <div>
-              <label className="block mb-1 text-lg">3. What's the Name of your Organization?</label>
-              <input
-                type="text"
-                name="organization"
-                value={formData.organization}
-                onChange={handleInputChange}
-                placeholder="Your Organization"
-                className="bg-transparent border-b border-white w-full outline-none py-2"
-              />
-            </div>
+        {/* ===== LEFT FORM ===== */}
+        <div className="contact-form-card">
+          <h2>Get In Touch</h2>
 
-            <div>
-              <label className="block mb-1 text-lg">4. What service are you looking for?</label>
-              <input
-                type="text"
-                name="service"
-                value={formData.service}
-                onChange={handleInputChange}
-                placeholder="e.g. Web Design, Branding"
-                className="bg-transparent border-b border-white w-full outline-none py-2"
-              />
-            </div>
+          <form onSubmit={sendEmail} className="form">
 
-            <div>
-              <label className="block mb-1 text-lg">5. Your Message</label>
-              <textarea
-                name="message"
-                rows="4"
-                value={formData.message}
-                onChange={handleInputChange}
-                placeholder="Write your message here..."
-                className="bg-transparent border-b border-white w-full outline-none py-2"
-              ></textarea>
-            </div>
+            <input name="name" placeholder="Name" onChange={handleInputChange} />
+            <input name="email" placeholder="Email" onChange={handleInputChange} />
+            <input name="organization" placeholder="Organization" onChange={handleInputChange} />
+            <input name="service" placeholder="Service Required" onChange={handleInputChange} />
 
-            {/* Submit Button */}
-            <div className="mt-6">
-              <button
-                type="submit"
-                className="bg-cream text-black px-8 py-3 rounded-full shadow-lg hover:bg-opacity-70 transition duration-300"
-              >
-                Send
-              </button>
-            </div>
+            <textarea
+              rows="3"
+              name="message"
+              placeholder="Message..."
+              onChange={handleInputChange}
+            />
+
+            <button className="send-btn">Send Message</button>
+
           </form>
         </div>
 
-        {/* Right: Contact Info (20%) - 1 column */}
-        <div className="md:col-span-1 flex flex-col justify-between text-sm md:text-base space-y-12 pt-2">
-          {/* Contact Details */}
+
+        {/* ===== RIGHT INFO ===== */}
+        <div className="contact-info-card">
+
           <div>
-            <h2 className="text-lg font-semibold mb-3">Contact Details</h2>
-            <p>
-              Email:{" "}
-              <a href="mailto:priyanshukr804@gmail.com" className="underline">
-                priyanshukr804@gmail.com
-              </a>
-            </p>
-            <p>
-              Phone:{" "}
-              <a href="tel:7070567961" className="underline">
-                7070567961
-              </a>
-            </p>
+            <h4>CONTACT</h4>
+            <p>priyanshukr804@gmail.com</p>
+            <p>7070567961</p>
           </div>
 
-          {/* Business Details */}
           <div>
-            <h2 className="text-lg font-semibold mb-3">Personal Details</h2>
-            <p>Priyanshu Kumar Poddar</p>
-            <p>B.tech in Information Technology</p>
-            <p>Location: Gumla, Jharkhand</p>
+            <h4>LOCATION</h4>
+            <p>Gumla, Jharkhand</p>
           </div>
 
-          {/* Social Links */}
-          <div>
-            <h2 className="text-lg font-semibold mb-3">Socials</h2>
-            <ul className="space-y-1 underline">
-              <li>
-                <a href="https://github.com/pr1ynsu" target="_blank" rel="noreferrer">
-                  GitHub
-                </a>
-              </li>
-              <li>
-                <a href="https://www.instagram.com/_priynsu/" target="_blank" rel="noreferrer">
-                  Instagram
-                </a>
-              </li>
-              <li>
-                <a href="https://x.com/prynsu5560" target="_blank" rel="noreferrer">
-                  Twitter
-                </a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/in/priyanshu-poddar-133609246/" target="_blank" rel="noreferrer">
-                  LinkedIn
-                </a>
-              </li>
-            </ul>
+          <div className="socials">
+            <h4>SOCIALS</h4>
+            <a href="#">GitHub</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Twitter</a>
           </div>
+
+          {/* ⭐ Resume CTA */}
+          <a
+            href="https://drive.google.com/file/d/1MAvbbyp0w4i5ayeTkwNSWI3NsHZO23o8/view?usp=sharing"
+            target="_blank"
+            rel="noreferrer"
+            className="resume-btn"
+          >
+            ↓ Download Resume
+          </a>
+
         </div>
-      </div>
-    </div>
-  );
-};
 
-export default Contact;
+      </div>
+    </section>
+  );
+}

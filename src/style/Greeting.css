@@ -1,0 +1,32 @@
+.greeting-slide {
+  animation: slideUp 1s ease-in-out forwards;
+  animation-delay: 3s;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+.greeting {
+  position: fixed;
+  inset: 0;
+  background: #222;
+  color: #333;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 3rem;
+  z-index: 50;
+
+  transition: transform 0.8s ease;
+}
+
+.greeting-hide {
+  transform: translateY(100%);
+}

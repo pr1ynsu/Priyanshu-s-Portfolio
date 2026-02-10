@@ -1,0 +1,332 @@
+/* =============================
+   NAVBAR BASE
+============================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 2rem 3rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  color: #faebd7;
+  z-index: 40;
+  transition: opacity .3s ease;
+}
+
+.navbar-hide {
+  opacity: 0;
+}
+
+
+/* =============================
+   LOGO SLIDE SWAP (FINAL FIX)
+============================= */
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* rotate © */
+.logo-symbol {
+  transition: transform .8s ease;
+}
+
+.navbar-logo:hover .logo-symbol {
+  transform: rotate(360deg);
+}
+
+
+/* wrapper acts like window */
+.logo-text-wrapper {
+  position: relative;
+  width: 170px;        /* fixed mask width */
+  height: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* both texts stacked exactly */
+
+.logo-text-primary,
+.logo-text-secondary {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  transition: transform .45s cubic-bezier(.6,0,.2,1);
+}
+
+/* initial positions */
+.logo-text-primary {
+  transform: translateX(0);
+}
+
+.logo-text-secondary {
+  transform: translateX(100%);
+}
+
+/* hover swap */
+.navbar-logo:hover .logo-text-primary {
+  transform: translateX(-100%);
+}
+
+.navbar-logo:hover .logo-text-secondary {
+  transform: translateX(0);
+}
+
+
+
+/* =============================
+   TOP NAV LINKS (DOT)
+============================= */
+
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  position: relative;
+  transition: transform .3s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: #faebd7;
+  border-radius: 50%;
+  transform: translateX(-50%) scale(0);
+  transition: transform .3s ease;
+}
+
+.nav-link:hover {
+  transform: translateY(-4px);
+}
+
+.nav-link:hover::after {
+  transform: translateX(-50%) scale(1);
+}
+
+
+/* =============================
+   MENU BUTTON (FILL EFFECT)
+============================= */
+
+.menu-btn {
+  position: fixed;
+  top: 1.5rem;
+  right: 2rem;
+
+  width: 48px;
+  height: 48px;
+
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 60;
+
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+
+  transition: background .3s ease, transform .3s ease;
+}
+
+.menu-btn:hover {
+  background: #faebd7;
+  color: black;
+  transform: scale(1.08);
+}
+
+/* =====================================
+   SIDE MENU — PROPORTION FIXED
+   (clean + compact + elegant)
+===================================== */
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  width: 35%;               /* smaller */
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  /* socials always visible */
+
+  padding: 3.5rem 3rem;     /* reduced padding */
+
+  background: rgba(20,20,20,0.96);
+  backdrop-filter: blur(24px);
+
+  box-shadow: -10px 0 40px rgba(0,0,0,.6);
+
+  clip-path: circle(0% at 95% 5%);
+  transition: clip-path .55s cubic-bezier(.7,0,.2,1);
+
+  z-index: 55;
+}
+
+.side-menu-open {
+  clip-path: circle(150% at 95% 5%);
+}
+
+
+
+/* =====================================
+   CLOSE BUTTON
+===================================== */
+
+.close-btn {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+  border: none;
+
+  background: rgba(255,255,255,.1);
+  color: #faebd7;
+
+  cursor: pointer;
+  font-size: 16px;
+
+  transition: background .2s ease, transform .2s ease;
+}
+
+.close-btn:hover {
+  background: #faebd7;
+  color: #111;
+  transform: scale(1.08);
+}
+
+
+
+/* =====================================
+   CONTENT LAYOUT
+===================================== */
+
+.menu-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+
+
+/* =====================================
+   TITLES
+===================================== */
+
+.menu-title {
+  font-size: 11px;
+  letter-spacing: 2px;
+  opacity: .45;
+  margin-bottom: 1rem;
+}
+
+
+
+/* =====================================
+   DIVIDER
+===================================== */
+
+.menu-divider {
+  height: 1px;
+  background: rgba(255,255,255,.1);
+  margin: 1.4rem 0;
+}
+
+
+
+/* =====================================
+   LINKS — PERFECT SIZE
+===================================== */
+
+.menu-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;   /* smaller gap */
+}
+
+.menu-link {
+  font-size: clamp(26px, 2.7vw, 34px); /* much smaller */
+  font-weight: 500;
+
+  position: relative;
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+/* subtle bullet */
+.menu-link::before {
+  content: "•";
+  position: absolute;
+  left: -18px;
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+
+.menu-link:hover {
+  transform: translateX(6px);
+  opacity: .9;
+}
+
+.menu-link:hover::before {
+  opacity: 1;
+}
+
+
+
+/* =====================================
+   SOCIAL LINKS — ALWAYS VISIBLE
+===================================== */
+
+.social-links {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  font-size: 13px;
+  opacity: .6;
+  transition: opacity .25s ease;
+}
+
+.social-link:hover {
+  opacity: 1;
+}
+
+
+
+/* =====================================
+   MOBILE FULLSCREEN
+===================================== */
+
+@media (max-width: 768px) {
+  .side-menu {
+    width: 100%;
+    padding: 3rem 2rem;
+  }
+
+  .menu-link {
+    font-size: 26px;
+  }
+}
