@@ -20,12 +20,16 @@
 
 
 /* =========================
-   SECTION 1
+   HERO SECTION (important)
 ========================= */
 
 .hero-section {
   height: 100vh;
+
+  /* 🔥 CRITICAL: anchor images here */
   position: relative;
+
+  overflow: hidden;
   padding: 0 3rem;
 
   display: flex;
@@ -35,33 +39,35 @@
 
 
 
-/* glass card */
+/* =========================
+   GLASS UI
+========================= */
+
 .glass-card {
   background: rgba(255,255,255,0.08);
   backdrop-filter: blur(14px);
-
   padding: .8rem 1.4rem;
   border-radius: 8px;
-
   border: 1px solid rgba(255,255,255,0.1);
 }
 
-
-
-/* top content */
 .hero-top {
   width: 100%;
-
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  z-index: 2;
+  position: relative;
 }
 
 .hero-role {
   font-size: 1.5rem;
-  line-height: 1.5;
+   justify-self: end;
+  text-align: right;
 }
 
+.hero-location {
+  justify-self: start;
+}
 
 
 /* =========================
@@ -74,109 +80,348 @@
   left: 0;
   width: 100%;
   overflow: hidden;
+  z-index: 2;
 }
 
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee 22s linear infinite;
+  will-change: transform;
 }
 
 .marquee-content span {
   margin-right: 30px;
+  letter-spacing: 1px;
 }
 
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+/* =========================
+   SECTION 3 OVERLAY
+========================= */
+
+.hero-services {
+  position: relative;
+  background: #111;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4rem;
+
+  padding: 6rem 3rem;
+
+  z-index: 5; /* appears over section 2 */
 }
 
+/* big typography */
+.service-line {
+  font-size: clamp(3rem, 7vw, 7rem);
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(120px);
+  transition: all .9s cubic-bezier(.2,.8,.2,1);
+}
+
+/* alternating directions */
+.service-line.left {
+  transform: translateX(-120px);
+}
+
+.hero-services:hover .service-line {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* bottom CTA */
+.services-cta {
+  margin-top: 5rem;
+  font-size: 1.3rem;
+  opacity: .7;
+  transition: all .3s ease;
+}
+
+.services-cta:hover {
+  opacity: 1;
+  transform: translateX(8px);
+}
 
 
 /* =========================
-   SECTION 2
+   SECTION 2 LAYOUT (REFINED)
 ========================= */
 
 .hero-about {
   background: #282727;
-  padding: 6rem 2rem;
-}
-
-.hero-about-inner {
-  max-width: 1200px;
-  margin: auto;
-
-  display: flex;
-  gap: 3rem;
-  justify-content: space-between;
-}
-
-.hero-left {
-  font-size: 1.2rem;
-  line-height: 1.8;
-}
-
-.hero-right {
-  max-width: 420px;
-  font-size: 1.05rem;
+  padding: 8rem 3rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
 }
 
 
-
-/* divider + button */
+/* ---------- center horizontal line ---------- */
 
 .hero-divider {
   position: relative;
   max-width: 1200px;
-  margin: 5rem auto 0;
+  margin: 6rem auto 0;
 }
 
 .hero-divider::before {
   content: "";
   position: absolute;
-  width: 100%;
   top: 50%;
+  left: 0;
+
+  width: 100%;
   height: 1px;
-  background: rgba(255,255,255,0.2);
+
+  background: rgba(255,255,255,0.25);
+
+  transform: translateY(-50%);
 }
+
+
+/* ---------- grid layout for symmetry ---------- */
+
+.hero-about-inner {
+  max-width: 1200px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1.4fr; /* right slightly larger */
+  gap: 5rem;
+  align-items: center;
+}
+
+
+/* ---------- left text (supporting copy) ---------- */
+
+.hero-left {
+  font-size: clamp(1.6rem, 2.6vw, 2.4rem); /* 🔥 bigger */
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: .5px;
+}
+
+
+/* ---------- right text (MAIN STATEMENT) ---------- */
+
+.hero-right {
+  
+
+  font-size: 3.25rem;
+  line-height: 1.2;
+  opacity: .85;
+}
+
+
+/* ---------- about circle button on RIGHT ---------- */
 
 .hero-btn {
   position: relative;
+  z-index: 3;
+
+  width: 120px;
+  height: 120px;
+
+  border-radius: 50%;
+
+  margin-left: auto;  /* 🔥 forces right alignment */
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  width: 110px;
-  height: 110px;
-
-  margin-left: auto;
-
-  border-radius: 50%;
-  background: #faebd7;
+  background: rgba(255,255,255,0.15);
   color: black;
 
   font-weight: 600;
 
-  transition: transform .25s ease;
+  transition: all .35s cubic-bezier(.2,.8,.2,1);
 }
 
+
+/* smooth hover motion */
 .hero-btn:hover {
-  transform: scale(1.07);
+  transform: scale(1.14) rotate(-10deg);
+  background: #e0c076;
 }
 
+
+/* ---------- reveal animation remains ---------- */
+
+.hero-reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all .9s cubic-bezier(.2,.8,.2,1);
+}
+
+.hero-show .hero-reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 
 /* =========================
    RESPONSIVE
 ========================= */
 
+@media (max-width: 900px) {
+
+  .hero-about-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .hero-right {
+    font-size: 1.5rem;
+  }
+
+  .hero-btn {
+    margin: 2rem auto 0; /* center on mobile */
+  }
+}
+
+/* =========================
+   SECTION 3 PATTERN OVERLAY
+========================= */
+
+.hero-services {
+  position: relative;
+  overflow: hidden;
+  background: #111;
+}
+
+
+/* texture layer */
+.hero-services::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url("/pattern.jpg");
+  background-size: 600px;        /* scale pattern */
+  background-repeat: repeat;
+  background-position: center;
+
+  opacity: 0.06;                 /* 🔥 low = premium */
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+
+/* keep text above pattern */
+.hero-services > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.hero-btn {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #faebd7;
+  color: black;
+  font-weight: 600;
+
+  transition: transform .3s ease, background .3s ease;
+}
+
+.hero-btn:hover {
+  transform: scale(1.12) rotate(-8deg);
+  background: #faebd7;
+}
+
+
+
+/* =================================
+   ADAM + GOD (FIXED → ABSOLUTE)
+================================= */
+
+.hero-adam,
+.hero-god {
+  position: absolute;   /* 🔥 changed from fixed */
+  pointer-events: none;
+  user-select: none;
+
+  z-index: 0;
+  will-change: transform;
+
+  transition: transform 0.6s linear;
+  opacity: 0.9;
+}
+
+/* bottom-left statue */
+.hero-adam {
+  bottom: -6%;
+  left: -6%;
+  width: 38vw;
+  max-width: 600px;
+}
+
+/* top-right statue */
+.hero-god {
+  top: -6%;
+  right: -6%;
+  width: 40vw;
+  max-width: 650px;
+}
+
+
+
+/* =========================
+   RESPONSIVE MAGIC
+========================= */
+
+@media (max-width: 1024px) {
+  .hero-adam,
+  .hero-god {
+    width: 45vw;
+  }
+}
+
 @media (max-width: 768px) {
+
   .hero-about-inner {
     flex-direction: column;
   }
 
   .hero-role {
     font-size: 1.2rem;
+  }
+
+  /* smaller statues on mobile */
+  .hero-adam {
+    width: 60vw;
+    left: -12%;
+    bottom: -10%;
+  }
+
+  .hero-god {
+    width: 60vw;
+    right: -12%;
+    top: -10%;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .hero-adam,
+  .hero-god {
+    width: 70vw;
+    opacity: 0.7;
   }
 }

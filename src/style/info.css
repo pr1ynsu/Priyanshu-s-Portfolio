@@ -1,0 +1,161 @@
+/* =========================
+   BASE
+========================= */
+
+.info-page {
+  background: radial-gradient(circle at top, #1c1c1c, #0f0f0f);
+  color: #faebd7;
+  overflow-x: hidden;
+}
+
+
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(70px);
+  transition: all 1s cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+/* =========================
+   MANIFESTO
+========================= */
+
+.info-manifesto {
+  padding: 12rem 3rem;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.info-manifesto h1 {
+  font-size: clamp(3rem, 7vw, 5.6rem);
+  line-height: 1.05;
+  font-weight: 700;
+  margin-bottom: 3.5rem;
+}
+
+.info-manifesto p {
+  font-size: 1.35rem;
+  line-height: 1.9;
+  opacity: .85;
+  margin-bottom: 2rem;
+}
+
+
+
+/* =========================
+   SERVICES
+========================= */
+
+.info-services {
+  padding: 9rem 3rem;
+  text-align: center;
+}
+
+.info-services h2 {
+  font-size: 2.4rem;
+  margin-bottom: 4rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.service-item {
+  font-size: 1.4rem;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid rgba(255,255,255,.15);
+  transition: transform .3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-8px);
+}
+
+
+
+/* =========================
+   SLIDER
+========================= */
+
+.info-slider {
+  padding: 8rem 0;
+  overflow: hidden;
+}
+
+.slider-track {
+  display: flex;
+  gap: 2rem;
+  animation: slide 45s linear infinite;
+}
+
+.slider-track img {
+  height: 340px;
+  border-radius: 16px;
+  object-fit: cover;
+
+  filter: grayscale(100%);
+  transition: .4s;
+}
+
+.slider-track img:hover {
+  transform: scale(1.06);
+  filter: grayscale(0%);
+}
+
+@keyframes slide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.info-aboutme {
+  padding: 10rem 3rem;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.info-aboutme h2 {
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+}
+
+.info-aboutme p {
+  font-size: 1.4rem;
+  line-height: 1.9;
+}
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .slider-track img {
+    height: 200px;
+  }
+
+  .info-manifesto h1 {
+    font-size: 2.6rem;
+  }
+}
