@@ -1,44 +1,115 @@
 import { Link } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../style/Hero.css";
 import WorkSection from "./WorkSection";
-
-
+import About from "../pages/About";
 
 export default function Hero({ showGreeting }) {
 
   const trackRef = useRef(null);
   const aboutRef = useRef(null);
 
-  /* 🔥 NEW */
   const heroRef = useRef(null);
   const adamRef = useRef(null);
   const godRef = useRef(null);
 
+  /* =========================
+     CENTER TEXT ROTATOR
+  ========================= */
+
+  const roles = [
+    "Web Developer",
+    "Brand Designing",
+    "Graphic Designing"
+  ];
+
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((p) => (p + 1) % roles.length);
+    }, 2200);
+
+    return () => clearInterval(interval);
+  }, []);
+
+
+
+/* =========================
+   TRUE PHYSICS MARQUEE
+========================= */
+
+useEffect(() => {
+  let lastY = window.scrollY;
+  let pos = 0;
+  let raf;
+
+  const animate = () => {
+    const currentY = window.scrollY;
+
+    /* scroll difference */
+    const delta = currentY - lastY;
+
+    /* 🔥 IMPORTANT: subtract = reverse direction */
+    pos -= delta * 0.6;
+
+    if (trackRef.current) {
+      const width = trackRef.current.scrollWidth / 2;
+
+      /* smooth infinite loop */
+      if (pos > width) pos -= width;
+      if (pos < -width) pos += width;
+
+      trackRef.current.style.transform = `translate3d(${pos}px,0,0)`;
+    }
+
+    lastY = currentY;
+    raf = requestAnimationFrame(animate);
+  };
+
+  raf = requestAnimationFrame(animate);
+  return () => cancelAnimationFrame(raf);
+}, []);
 
 
   /* =========================
-     TRUE SCROLL-DRIVEN MARQUEE (UNCHANGED)
+     STATUE MOTION
   ========================= */
+
   useEffect(() => {
-    let lastY = window.scrollY;
-    let pos = 0;
     let raf;
 
     const animate = () => {
-      const currentY = window.scrollY;
-      const delta = currentY - lastY;
+      const heroTop = heroRef.current.offsetTop;
+      const scroll = window.scrollY;
 
-      pos -= delta * 0.6;
+      const raw = (scroll - heroTop) / window.innerHeight;
+      const progress = Math.max(0, Math.min(raw, 1));
 
-      if (pos < -window.innerWidth) pos = 0;
-      if (pos > 0) pos = -window.innerWidth;
+      const ease = 1 - Math.pow(1 - progress, 3);
 
-      if (trackRef.current) {
-        trackRef.current.style.transform = `translateX(${pos}px)`;
+      const scale = 1 + ease * 0.8;
+      const tilt = ease * 28;
+
+      const adamUp = ease * 80;
+      const adamRight = ease * 50;
+
+      const godDown = ease * 90;
+
+      if (adamRef.current) {
+        adamRef.current.style.transform =
+          `translate(${adamRight}px, ${-adamUp}px)
+           rotate(${-tilt}deg)
+           scale(${scale})`;
       }
 
-      lastY = currentY;
+      if (godRef.current) {
+        godRef.current.style.transform =
+          `translateY(${godDown}px)
+           rotate(${tilt}deg)
+           scale(${scale})`;
+      }
+
       raf = requestAnimationFrame(animate);
     };
 
@@ -48,58 +119,10 @@ export default function Hero({ showGreeting }) {
 
 
 
-/* =========================
-   ADAM + GOD PHYSICALLY CORRECT PIVOT MOTION
-========================= */
-useEffect(() => {
-  let raf;
-
-  const animate = () => {
-    const heroTop = heroRef.current.offsetTop;
-    const scroll = window.scrollY;
-
-    const raw = (scroll - heroTop) / window.innerHeight;
-    const progress = Math.max(0, Math.min(raw, 1));
-
-    const ease = 1 - Math.pow(1 - progress, 3);
-
-    const scale = 1 + ease * 0.8;
-    const tilt  = ease * 28;
-
-    /* Adam (same as before) */
-    const adamUp    = ease * 80;
-    const adamRight = ease * 50;
-
-    /* God: ONLY down */
-    const godDown = ease * 90;
-
-    if (adamRef.current) {
-      adamRef.current.style.transform =
-        `translate(${adamRight}px, ${-adamUp}px)
-         rotate(${-tilt}deg)
-         scale(${scale})`;
-    }
-
-    if (godRef.current) {
-      godRef.current.style.transform =
-        `translateY(${godDown}px)
-         rotate(${tilt}deg)
-         scale(${scale})`;
-    }
-
-    raf = requestAnimationFrame(animate);
-  };
-
-  raf = requestAnimationFrame(animate);
-  return () => cancelAnimationFrame(raf);
-}, []);
-
-
-
-
   /* =========================
-     REPEAT APPEAR ANIMATION (UNCHANGED)
+     REVEAL
   ========================= */
+
   useEffect(() => {
     const el = aboutRef.current;
 
@@ -123,28 +146,21 @@ useEffect(() => {
       {/* ================= SECTION 1 ================= */}
       <section ref={heroRef} className="hero-section">
 
-        {/* 🔥 NEW IMAGES */}
         <img ref={adamRef} src="/adam.PNG" className="hero-adam" />
         <img ref={godRef} src="/god.PNG" className="hero-god" />
 
 
-        <div className="hero-top">
-          <div className="hero-location glass-card">
-            Graphic designer <br />
-            Full Stack Developer
-          </div>
-
-            <div className="hero-role">
-              design, code &<br />
-              <span className="hero-highlight">interaction</span>
-            </div>
-
+        {/* 🔥 CENTER GLASS TEXT */}
+        <div className="hero-center-glass">
+          <span key={index} className="glass-text">
+            {roles[index]}
+          </span>
         </div>
 
 
+        {/* MARQUEE */}
         <div className="marquee-container">
           <div ref={trackRef} className="marquee-track">
-
             <div className="marquee-content">
               <span>Welcome to Priyanshu's Portfolio — </span>
               <span>Welcome to Priyanshu's Portfolio — </span>
@@ -156,7 +172,6 @@ useEffect(() => {
               <span>Welcome to Priyanshu's Portfolio — </span>
               <span>Welcome to Priyanshu's Portfolio — </span>
             </div>
-
           </div>
         </div>
 
@@ -182,28 +197,28 @@ useEffect(() => {
 
         </div>
 
-        <div className="hero-divider">
-          <Link to="/about" className="hero-btn">About Me</Link>
-        </div>
+
 
       </section>
 
+        {/* About section directly rendered */}
+        <About />
+
       {/* ================= SECTION 3 ================= */}
-        <section className="hero-services">
+      <section className="hero-services">
 
-          <div className="service-line left">Brand Strategy</div>
-          <div className="service-line right">Visual Identity</div>
-          <div className="service-line left">Packaging & Print</div>
-          <div className="service-line right">Web Design & Build</div>
+        <div className="service-line left">Brand Strategy</div>
+        <div className="service-line right">Visual Identity</div>
+        <div className="service-line left">Packaging & Print</div>
+        <div className="service-line right">Web Design & Build</div>
 
-          <Link to="/info" className="services-cta">
-            What Priyanshu Do →
-          </Link>
+        <Link to="/info" className="services-cta">
+          What Priyanshu Does →
+        </Link>
 
-        </section>      
-        {/* ================= SECTION 4 (WORK) ================= */}
-        <WorkSection />
+      </section>
 
+      <WorkSection />
 
     </main>
   );

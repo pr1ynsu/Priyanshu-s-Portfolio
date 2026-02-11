@@ -1,152 +1,343 @@
-/* ===============================
-   BASE
-=============================== */
+/* =================================
+   FONTS
+================================ */
 
-.about-page {
-  min-height: 100vh;
-  background: #1d1d1d;
-  color: #ECDFCC;
-  padding: 5rem 2rem;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600&display=swap");
+
+
+/* =================================
+   GLOBAL
+================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+.about {
+  font-family: "Inter", sans-serif;
+  background: #38383a;
+  color: #e7dab7;
+
+  overflow-x: hidden;
 }
 
 
-/* ===============================
-   TITLES
-=============================== */
+/* =================================
+   SECTIONS
+================================ */
 
-.section-title {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 2rem;
-  opacity: .9;
-}
-
-
-/* ===============================
-   INTRO TEXT
-=============================== */
-
-.intro-text {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  opacity: .8;
-  max-width: 900px;
-}
-
-
-/* ===============================
-   GLASS CARDS
-=============================== */
-
-.glass-card {
-  background: rgba(255,255,255,.05);
-  backdrop-filter: blur(14px);
-
-  border-radius: 14px;
-  padding: 1.6rem;
-
-  border: 1px solid rgba(255,255,255,.1);
-
-  transition: transform .25s ease, border .25s ease;
-}
-
-.glass-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(255,255,255,.25);
-}
-
-
-/* ===============================
-   GRID
-=============================== */
-
-.about-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-  gap: 2rem;
-}
-
-
-/* ===============================
-   BUTTON CIRCLE
-=============================== */
-
-.about-btn-circle {
-  background: #ECDFCC;
-  color: black;
-
-  width: 120px;
-  height: 120px;
-
-  border-radius: 50%;
+section {
+  min-height: 90vh;
+  padding: 0 12vw;
 
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
 
-  cursor: pointer;
-
-  transition: transform .25s ease, background .25s ease;
-}
-
-.about-btn-circle:hover {
-  transform: scale(1.05);
-  background: white;
+  gap: 1.5rem;
 }
 
 
-/* ===============================
+/* =================================
+   TYPOGRAPHY
+================================ */
+
+h1, h2, h3 {
+  font-family: "Playfair Display", serif;
+}
+
+h1 {
+  font-size: clamp(50px, 7vw, 90px);
+}
+
+.subtitle {
+  opacity: .7;
+}
+
+.lead-text {
+  max-width: 650px;
+  opacity: .75;
+  line-height: 1.7;
+}
+
+
+/* =================================
+   SKILLS
+================================ */
+
+.skill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 2rem;
+}
+
+.skill-grid span {
+  padding: 10px 18px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+
+  transition: all .25s ease;
+}
+
+.skill-grid span:hover {
+  transform: translateY(-3px);
+  background: #f5f3ee;
+  color: black;
+}
+
+
+/* =================================
    TIMELINE
-=============================== */
+================================ */
 
 .timeline {
   position: relative;
-  margin: 3rem auto;
-  max-width: 700px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.8rem;
+  margin-top: 4rem;
 }
 
 .timeline::before {
   content: "";
   position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
+  left: 50%;
   width: 2px;
+  height: 100%;
   background: rgba(255,255,255,.15);
 }
 
 .timeline-item {
-  padding-left: 2rem;
+  width: 50%;
+  padding: 2rem;
   position: relative;
 }
 
-.timeline-item span {
-  font-size: .9rem;
-  opacity: .5;
-  display: block;
+.timeline-item:nth-child(odd) {
+  left: 0;
+  text-align: right;
 }
 
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  left: -6px;
-  top: 6px;
-  width: 10px;
-  height: 10px;
-  background: #ECDFCC;
-  border-radius: 50%;
+.timeline-item:nth-child(even) {
+  left: 50%;
+}
+
+.content {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+
+  padding: 1.6rem 2rem;
+  border-radius: 14px;
+
+  transition: transform .35s ease;
+}
+
+.content:hover {
+  transform: translateY(-6px);
 }
 
 
-/* ===============================
-   RESPONSIVE
-=============================== */
+/* =================================
+   REVEAL ANIMATION
+================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all .8s cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =================================
+   MOBILE
+================================ */
 
 @media (max-width: 768px) {
-  .about-page {
-    padding: 3rem 1.5rem;
+
+  .timeline::before {
+    left: 10px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    left: 0 !important;
+    text-align: left;
+    padding-left: 40px;
+  }
+}/* =================================
+   FONTS
+================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600&display=swap");
+
+
+/* =================================
+   GLOBAL
+================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+.about {
+  font-family: "Inter", sans-serif;
+  background: #0e0e0f;
+  color: #f5f3ee;
+
+  overflow-x: hidden;
+}
+
+
+/* =================================
+   SECTIONS
+================================ */
+
+section {
+  min-height: 90vh;
+  padding: 0 12vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 1.5rem;
+}
+
+
+/* =================================
+   TYPOGRAPHY
+================================ */
+
+h1, h2, h3 {
+  font-family: "Playfair Display", serif;
+}
+
+h1 {
+  font-size: clamp(50px, 7vw, 90px);
+}
+
+.subtitle {
+  opacity: .7;
+}
+
+.lead-text {
+  max-width: 650px;
+  opacity: .75;
+  line-height: 1.7;
+}
+
+
+/* =================================
+   SKILLS
+================================ */
+
+.skill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 2rem;
+}
+
+.skill-grid span {
+  padding: 10px 18px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+
+  transition: all .25s ease;
+}
+
+.skill-grid span:hover {
+  transform: translateY(-3px);
+  background: #f5f3ee;
+  color: black;
+}
+
+
+/* =================================
+   TIMELINE
+================================ */
+
+.timeline {
+  position: relative;
+  margin-top: 4rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: rgba(255,255,255,.15);
+}
+
+.timeline-item {
+  width: 50%;
+  padding: 2rem;
+  position: relative;
+}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+}
+
+.content {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+
+  padding: 1.6rem 2rem;
+  border-radius: 14px;
+
+  transition: transform .35s ease;
+}
+
+.content:hover {
+  transform: translateY(-6px);
+}
+
+
+/* =================================
+   REVEAL ANIMATION
+================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all .8s cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =================================
+   MOBILE
+================================ */
+
+@media (max-width: 768px) {
+
+  .timeline::before {
+    left: 10px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    left: 0 !important;
+    text-align: left;
+    padding-left: 40px;
   }
 }

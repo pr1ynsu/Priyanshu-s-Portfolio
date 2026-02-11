@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import "../style/Greeting.css";
 
 const greetings = [
-  "Hello","Hola","Bonjour","Ciao","Namaste",
-  "こんにちは","안녕하세요","你好","Hallo","Olá"
+  "Hello","Hola","こんにちは","Bonjour","Ciao",
+  "안녕하세요","Hallo","Olá"
 ];
 
 export default function Greeting({ onFinish }) {
@@ -18,7 +18,7 @@ export default function Greeting({ onFinish }) {
     const timer = setTimeout(() => {
       setHide(true);
       setTimeout(onFinish, 800); // after slide animation
-    }, 4000);
+    }, 2500);
 
     return () => {
       clearInterval(interval);

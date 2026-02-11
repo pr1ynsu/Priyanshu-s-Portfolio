@@ -52,11 +52,18 @@
 }
 
 .hero-top {
+  position: absolute;   /* leaves flex flow */
+  top: 0;               /* y = 0 */
+  left: 0;              /* x = 0 */
+
   width: 100%;
   display: flex;
+
   justify-content: space-between;
+  align-items: center;
+
   z-index: 2;
-  position: relative;
+  padding: 20px 40px;   /* optional aesthetic spacing */
 }
 
 .hero-role {
@@ -198,24 +205,44 @@
 
 /* ---------- left text (supporting copy) ---------- */
 
+/* =========================
+   ABOUT TYPOGRAPHY SYSTEM
+========================= */
+
+.hero-about-inner {
+  text-align: left;
+  align-items: start;
+  font-family: "Inter", sans-serif;
+}
+
+
+/* LEFT = supporting copy */
 .hero-left {
-  font-size: clamp(1.6rem, 2.6vw, 2.4rem); /* 🔥 bigger */
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: .5px;
+  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.7;
+
+  letter-spacing: 0.4px;
+
+  opacity: 0.65;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
 }
 
 
-/* ---------- right text (MAIN STATEMENT) ---------- */
-
+/* RIGHT = main statement (hero message) */
 .hero-right {
-  
+  font-size: clamp(2.6rem, 3.4vw, 3.6rem);
+  font-weight: 600;
 
-  font-size: 3.25rem;
   line-height: 1.2;
-  opacity: .85;
-}
 
+  letter-spacing: -0.5px;
+
+  max-width: 560px;
+}
 
 /* ---------- about circle button on RIGHT ---------- */
 
@@ -425,3 +452,100 @@
     opacity: 0.7;
   }
 }
+
+/* =========================
+   CENTER GLASS BOX
+========================= */
+
+.hero-center-glass {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  padding: 1.6rem 3.5rem;
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(18px);
+
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.15);
+
+  box-shadow:
+    0 8px 30px rgba(0,0,0,.35),
+    inset 0 0 20px rgba(255,255,255,.05);
+
+  z-index: 5;
+}
+
+
+/* smooth morph text */
+.glass-text {
+  font-size: clamp(1.6rem, 3vw, 2.8rem);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  animation: fadeSwap .6s ease;
+}
+
+@keyframes fadeSwap {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* =========================
+   ABOUT DIVIDER AESTHETIC LINE
+========================= */
+
+.hero-divider {
+  position: relative;
+  max-width: 1200px;
+  margin: 6rem auto 0;
+}
+
+.hero-divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(255,255,255,0.25);
+  transform: translateY(-50%);
+}
+
+.hero-btn {
+  margin-left: auto;
+}
+
+
+
+/* =========================
+   SMALLER SERVICES FONT (tweak only)
+========================= */
+
+.service-line {
+  font-size: clamp(2.3rem, 5.5vw, 5.5rem); /* 🔥 reduced slightly */
+}
+
+
+
+/* =========================
+   MARQUEE TEXT POLISH
+========================= */
+
+.marquee-content span {
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  opacity: .75;
+}
+

@@ -12,9 +12,11 @@
   justify-content: space-between;
   align-items: center;
 
-  color: #faebd7;
+  color: #504e4b;
   z-index: 40;
   transition: opacity .3s ease;
+     
+
 }
 
 .navbar-hide {
@@ -32,7 +34,8 @@
   gap: 10px;
   cursor: pointer;
   text-decoration: none;
-  color: inherit;
+  color: #c7c0b4;
+  
 }
 
 /* rotate © */
@@ -94,6 +97,7 @@
 ============================= */
 
 .navbar-links {
+  font-weight: 600;
   display: flex;
   gap: 2rem;
 
@@ -132,7 +136,7 @@
   left: 50%;
   width: 6px;
   height: 6px;
-  background: #faebd7;
+  background: #5e5952;
   border-radius: 50%;
   transform: translateX(-50%) scale(0);
   transition: transform .3s ease;
@@ -383,4 +387,86 @@
   .menu-link {
     font-size: 26px;
   }
+}
+
+/* =====================================
+   📱 MOBILE NAVBAR — CLEAN RESPONSIVE
+===================================== */
+
+@media (max-width: 768px) {
+
+  /* NAVBAR BASE */
+  .navbar {
+    padding: 1.1rem 1.2rem; /* smaller */
+  }
+
+
+
+  /* LOGO WRAPPER */
+  .logo-text-wrapper {
+    width: 110px; /* smaller mask */
+    height: 16px;
+  }
+
+
+
+  /* LOGO TEXT SIZE */
+  .logo-text-primary,
+  .logo-text-secondary {
+    font-size: 13px;
+  }
+
+
+
+  /* GLASS CAPSULE LINKS */
+  .navbar-links {
+    gap: 1rem;
+
+    padding: .45rem 1rem; /* tighter */
+
+    border-radius: 999px;
+
+    backdrop-filter: blur(12px);
+  }
+
+
+
+  /* LINKS */
+  .nav-link {
+    font-size: 13px;
+  }
+
+
+
+  /* smaller hover movement */
+  .nav-link:hover {
+    transform: translateY(-2px);
+  }
+
+
+
+  /* MENU BUTTON */
+  .menu-btn {
+    width: 40px;
+    height: 40px;
+
+    top: 1rem;
+    right: 1rem;
+  }
+
+
+
+  /* SIDE MENU FULL WIDTH (already good but cleaner) */
+  .side-menu {
+    width: 100%;
+    padding: 2.5rem 1.8rem;
+  }
+
+
+
+  /* SIDE MENU LINKS smaller */
+  .menu-link {
+    font-size: 22px;
+  }
+
 }
