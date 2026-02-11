@@ -19,7 +19,7 @@ export default function Footer() {
 
         {/* Text */}
         <div className="footer-heading">
-          <h2>Let’s Work<br />Together</h2>
+          <h2>Let’s Work<br />Together !</h2>
         </div>
 
       </div>
