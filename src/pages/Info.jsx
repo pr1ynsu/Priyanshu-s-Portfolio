@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../style/Info.css";
+import "../style/info.css";
 
 export default function Info() {
 

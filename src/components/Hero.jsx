@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import "../style/Hero.css";
+import WorkSection from "./WorkSection";
+
+
 
 export default function Hero({ showGreeting }) {
 
@@ -198,6 +201,8 @@ useEffect(() => {
           </Link>
 
         </section>      
+        {/* ================= SECTION 4 (WORK) ================= */}
+        <WorkSection />
 
 
     </main>

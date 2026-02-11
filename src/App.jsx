@@ -5,7 +5,8 @@ import { AnimatePresence } from "framer-motion";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Greeting from "./components/Greeting";
-import Curve from "./components/Transition/Curve"; // ← IMPORTANT (add back)
+import Curve from "./components/Transition/Curve";
+import ScrollToTop from "./components/ScrollToTop";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -17,26 +18,26 @@ import "./App.css";
 
 function App() {
   const location = useLocation();
-
   const [showGreeting, setShowGreeting] = useState(true);
 
   return (
     <div className="app-root">
 
-      {/* ================= GREETING OVERLAY ================= */}
+      {/* Greeting Overlay */}
       {showGreeting && (
         <Greeting onFinish={() => setShowGreeting(false)} />
       )}
 
-      {/* ================= MAIN APP ================= */}
+      {/* Main App */}
       {!showGreeting && (
         <>
+          {/* ⭐ MUST be here (always mounted) */}
+          <ScrollToTop />
+
           <Navbar />
 
-          {/* 🔥 THIS IS WHERE YOUR CURVE LIVES */}
           <AnimatePresence mode="wait">
             <Curve key={location.pathname}>
-
               <Routes location={location} key={location.pathname}>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
@@ -44,7 +45,6 @@ function App() {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/info" element={<Info />} />
               </Routes>
-
             </Curve>
           </AnimatePresence>
 
