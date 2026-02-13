@@ -65,6 +65,10 @@
 /* =====================================
    GLASS CARD SYSTEM
 ===================================== */
+.contact-info-card > * {
+  position: relative;
+  z-index: 1;
+}
 
 .contact-form-card,
 .contact-info-card {

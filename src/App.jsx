@@ -20,6 +20,9 @@ function App() {
   const location = useLocation();
   const [showGreeting, setShowGreeting] = useState(true);
 
+  // Hide footer on contact page
+  const hideFooter = location.pathname === "/contact";
+
   return (
     <div className="app-root">
 
@@ -31,7 +34,6 @@ function App() {
       {/* Main App */}
       {!showGreeting && (
         <>
-          {/* ⭐ MUST be here (always mounted) */}
           <ScrollToTop />
 
           <Navbar />
@@ -48,7 +50,8 @@ function App() {
             </Curve>
           </AnimatePresence>
 
-          <Footer />
+          {/* Conditional Footer */}
+          {!hideFooter && <Footer />}
         </>
       )}
     </div>

@@ -28,16 +28,16 @@ export default function About() {
 
       {/* ================= HERO ================= */}
       <section className="hero reveal">
-        <h1>Priyanshu Kumar Poddar</h1>
+        
 
         <h3 className="subtitle">
-          Full-Stack Developer · UI/UX Designer · Problem Solver
+          Full Stack Developer · UI/UX Designer · Problem Solver
         </h3>
 
         <p className="lead-text">
-          I design and build production-ready web applications that are fast,
+          I design and build production ready web applications that are fast,
           scalable, and visually refined. My focus is clean architecture,
-          thoughtful interfaces, and solving real-world problems — not
+          thoughtful interfaces, and solving real-world problems, not
           unnecessary complexity.
         </p>
       </section>
