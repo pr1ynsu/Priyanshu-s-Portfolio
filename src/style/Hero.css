@@ -102,7 +102,7 @@
 }
 
 /* =========================
-   SECTION 3 OVERLAY
+   SECTION 3 OVERLAY (RESPONSIVE FIXED)
 ========================= */
 
 .hero-services {
@@ -113,24 +113,56 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 4rem;
+  align-items: center;   /* 🔥 center on mobile */
 
-  padding: 6rem 3rem;
+  gap: 3.5rem;
+  padding: 6rem 2rem;
 
-  z-index: 5; /* appears over section 2 */
+  text-align: center;    /* 🔥 important */
+  overflow: hidden;
+  z-index: 5;
 }
 
-/* big typography */
+/* pattern overlay */
+.hero-services::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url("/pattern.jpg");
+  background-size: 600px;
+  background-repeat: repeat;
+  background-position: center;
+
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-services > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =========================
+   SERVICE LINES (DESKTOP)
+========================= */
+
 .service-line {
-  font-size: clamp(3rem, 7vw, 7rem);
+  font-size: clamp(2.5rem, 5vw, 5.5rem);
   font-weight: 600;
-  white-space: nowrap;
+
+  line-height: 1.1;
+  max-width: 1000px;
+
+  white-space: nowrap;  /* desktop only feel */
   opacity: 0;
   transform: translateX(120px);
+
   transition: all .9s cubic-bezier(.2,.8,.2,1);
 }
 
-/* alternating directions */
 .service-line.left {
   transform: translateX(-120px);
 }
@@ -140,17 +172,57 @@
   transform: translateX(0);
 }
 
-/* bottom CTA */
+
+/* =========================
+   CTA
+========================= */
+
 .services-cta {
-  margin-top: 5rem;
-  font-size: 1.3rem;
+  margin-top: 4rem;
+  font-size: 1.2rem;
   opacity: .7;
   transition: all .3s ease;
 }
 
 .services-cta:hover {
   opacity: 1;
-  transform: translateX(8px);
+  transform: translateY(-4px);
+}
+
+
+
+/* =========================
+   MOBILE FIX
+========================= */
+
+@media (max-width: 900px) {
+
+  .hero-services {
+    padding: 5rem 1.5rem;
+    gap: 2.5rem;
+  }
+
+  .service-line {
+    font-size: clamp(1.6rem, 6vw, 2.4rem);
+
+    white-space: normal;   /* 🔥 ALLOW WRAPPING */
+    text-align: center;
+
+    transform: translateY(40px);  /* vertical reveal instead */
+  }
+
+  .service-line.left {
+    transform: translateY(40px);
+  }
+
+  .hero-services:hover .service-line {
+    transform: translateY(0);
+  }
+
+  .services-cta {
+    font-size: 1rem;
+    margin-top: 2rem;
+  }
 }
 
 
